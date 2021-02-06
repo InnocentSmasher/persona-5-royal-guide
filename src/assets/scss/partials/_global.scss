@@ -69,7 +69,7 @@ h2 {
 h3 {
     font-size: 1.125rem;
     line-height: 1.125;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 h4 {
@@ -195,10 +195,6 @@ footer {
     li {
         line-height: 1;
 
-        @media (min-width: $breakpoint) {
-            //width: 50%;
-        }
-
         + li {
             margin-top: 1rem;
 
@@ -223,4 +219,32 @@ main {
     grid-template-rows: min-content;
     align-self: start;
     grid-gap: 2rem;
+
+    > * {
+        margin-bottom: 0;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        list-style: square;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    li {
+        line-height: 1.5;
+    }
+}
+
+.day {
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
 }
