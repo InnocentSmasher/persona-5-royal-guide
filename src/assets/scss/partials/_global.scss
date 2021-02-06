@@ -1,0 +1,226 @@
+$black: #111;
+$dark-gray: #444;
+$gray: #aaa;
+$light-gray: #ddd;
+$white: #f5f5f5;
+$breakpoint: 768px;
+
+html {
+    --text: #{$black};
+    --stripes: #{$light-gray};
+    --visited: #{$dark-gray};
+    --bg: #{$white};
+    //--bg-image: url('../images/bg-light.png');
+    --text-shadow: rgba(0, 0, 0, .3);
+
+    @media (prefers-color-scheme: dark) {
+        --text: #{$white};
+        --stripes: #{$dark-gray};
+        --visited: #{$gray};
+        --bg: #{$black};
+        //--bg-image: url('../images/bg-dark.png');
+        --text-shadow: rgba(0, 0, 0, .9);
+    }
+
+    background-color: var(--bg);
+    font-size: 18px;
+
+    @media (min-width: 768px) {
+        font-size: 21px;
+    }
+}
+
+body {
+    line-height: 1.4;
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji";
+    font-size: 1rem;
+    margin: 0;
+    //background: var(--bg-image) center;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+a {
+    margin: 0;
+    letter-spacing: -.0125em;
+}
+
+h1 {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint) {
+        margin-bottom: 0;
+    }
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+}
+
+h3 {
+    font-size: 1.125rem;
+    line-height: 1.125;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: .25rem;
+}
+
+p {
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 2px dotted;
+    transition: border-bottom-color .2s;
+
+    &:hover,
+    &:focus {
+        border-bottom-color: transparent;
+    }
+
+    &:focus {
+        outline: 3px dashed;
+    }
+
+    &:visited {
+        color: var(--visited);
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+sup {
+    font-size: .75rem;
+    line-height: 0;
+}
+
+.mobile-only {
+    display: block;
+
+    @media (min-width: 600px) {
+        display: none;
+    }
+}
+
+.hr--mini {
+    margin: 0 auto;
+    width: 2rem;
+    border-bottom: 4px solid;
+}
+
+.list {
+    padding-left: 1rem;
+    list-style: square;
+}
+
+.container {
+    width: calc(100% - 2rem);
+    max-width: 672px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 1rem 0;
+    display: grid;
+    grid-template-areas: 'header' 'main' 'footer';
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 2rem;
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid;
+    padding-bottom: 1rem;
+
+    @media (min-width: $breakpoint) {
+        flex-direction: row;
+    }
+}
+
+footer {
+    grid-area: footer;
+    border-top: 2px solid;
+    padding-top: 1rem;
+
+    @media (min-width: $breakpoint) {
+        flex-direction: row;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: $breakpoint) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+
+    li {
+        line-height: 1;
+
+        @media (min-width: $breakpoint) {
+            //width: 50%;
+        }
+
+        + li {
+            margin-top: 1rem;
+
+            @media (min-width: $breakpoint) {
+                margin-top: unset;
+            }
+        }
+
+        &:last-of-type {
+            @media (min-width: $breakpoint) {
+                margin-top: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: min-content;
+    align-self: start;
+    grid-gap: 2rem;
+}
