@@ -3,7 +3,7 @@ module.exports = {
         title: `Persona 5 Royal Guide`,
         description: `A set of guides and resources for the video game Persona 5 Royal.`,
         author: `Chuck Hutchins`,
-        siteUrl: `https://chuckhutchins.com`,
+        siteUrl: `https://persona5royal.netlify.app`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -13,13 +13,6 @@ module.exports = {
             options: {
                 name: `guide`,
                 path: `${__dirname}/src/pages/guide/`,
-            },
-        },
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `resources`,
-                path: `${__dirname}/src/pages/resources/`,
             },
         },
         {
