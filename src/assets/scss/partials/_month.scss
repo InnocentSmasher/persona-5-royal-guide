@@ -1,0 +1,14 @@
+.month {
+    grid-template-rows: min-content 1fr min-content;
+    align-self: unset;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        margin-bottom: 0;
+    }
+}
