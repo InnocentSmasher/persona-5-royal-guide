@@ -3,23 +3,41 @@ $dark-gray: #444;
 $gray: #aaa;
 $light-gray: #ddd;
 $white: #f5f5f5;
+
+$red: #c51522;
+$bright-red: #ed2124;
+
 $breakpoint: 768px;
+
+$white-transparent-low: rgba(255, 255, 255, .1);
+$white-transparent-medium: rgba(255, 255, 255, .5);
+$white-transparent-high: rgba(255, 255, 255, .75);
+$black-transparent-low: rgba(0, 0, 0, .1);
+$black-transparent-medium: rgba(0, 0, 0, .5);
+$black-transparent-high: rgba(0, 0, 0, .75);
 
 html {
     --text: #{$black};
     --stripes: #{$light-gray};
     --visited: #{$dark-gray};
     --bg: #{$white};
-    //--bg-image: url('../images/bg-light.png');
-    --text-shadow: rgba(0, 0, 0, .3);
+
+    --primary: #{$red};
+    --primary-bright: #{$bright-red};
+
+    --transparent-low: #{$black-transparent-low};
+    --transparent-medium: #{$black-transparent-medium};
+    --transparent-high: #{$black-transparent-high};
 
     @media (prefers-color-scheme: dark) {
         --text: #{$white};
         --stripes: #{$dark-gray};
         --visited: #{$gray};
         --bg: #{$black};
-        //--bg-image: url('../images/bg-dark.png');
-        --text-shadow: rgba(0, 0, 0, .9);
+
+        --transparent-low: #{$white-transparent-low};
+        --transparent-medium: #{$white-transparent-medium};
+        --transparent-high: #{$white-transparent-high};
     }
 
     background-color: var(--bg);
@@ -36,7 +54,6 @@ body {
     font-family: ui-sans-serif, system-ui, -system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji";
     font-size: 1rem;
     margin: 0;
-    //background: var(--bg-image) center;
 }
 
 h1,
@@ -54,10 +71,6 @@ h1 {
     font-size: 1.5rem;
     line-height: 1;
     margin-bottom: 1rem;
-
-    @media (min-width: $breakpoint) {
-        margin-bottom: 0;
-    }
 }
 
 h2 {
@@ -161,17 +174,21 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid;
+    border-bottom: .25rem solid var(--primary);
     padding-bottom: 1rem;
 
     @media (min-width: $breakpoint) {
         flex-direction: row;
     }
+
+    h1 {
+        margin-bottom: 0;
+    }
 }
 
 footer {
     grid-area: footer;
-    border-top: 2px solid;
+    border-top: .25rem solid var(--primary);
     padding-top: 1rem;
 
     @media (min-width: $breakpoint) {
@@ -224,14 +241,18 @@ main {
         margin-bottom: 0;
     }
 
-    ul {
+    ul,
+    ol {
         margin-bottom: 1rem;
         padding-left: 1rem;
-        list-style: square;
 
         &:last-child {
             margin-bottom: 0;
         }
+    }
+
+    ul {
+        list-style: square;
     }
 
     li {
