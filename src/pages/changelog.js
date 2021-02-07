@@ -9,6 +9,7 @@ export default function ChangelogPage() {
             <main>
                 <h2>Changelog</h2>
                 <ul>
+                    <li>2021-02-07 &ndash; Updated title in site header.</li>
                     <li>2021-02-06 &ndash; Extracted out guide to it's own domain.</li>
                     <li>2021-01-31 &ndash; Updated layout.</li>
                     <li>2021-01-30 &ndash; Added December, January, and February.</li>
