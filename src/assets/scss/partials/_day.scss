@@ -1,0 +1,62 @@
+.day-template {
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    grid-gap: 2rem;
+    align-self: unset;
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    .content {
+        flex-grow: 1;
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.125rem;
+            line-height: 1.125;
+            margin-bottom: .5rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+            line-height: 1.25;
+            margin-bottom: .25rem;
+        }
+
+        table {
+            border: 1px solid var(--text);
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: .25rem .5rem;
+            border: 1px solid var(--text);
+        }
+    }
+}
+
+.day {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+
+    &__previous {
+        margin-right: auto;
+    }
+
+    &__next {
+        margin-left: auto;
+    }
+}
