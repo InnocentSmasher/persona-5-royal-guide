@@ -22,7 +22,7 @@ export default function IndexPage({ data }) {
 
 export const query = graphql`
     query AprilQuery {
-        allMdx(sort: {fields: slug, order: ASC}) {
+        allMdx(sort: {fields: slug, order: ASC}, filter: {slug: {regex: "/april/"}}) {
             nodes {
                 frontmatter {
                     title
