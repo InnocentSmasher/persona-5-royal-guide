@@ -43,8 +43,22 @@
 .day {
     &__header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column-reverse;
+        align-items: start;
+
+        @media (min-width: $breakpoint) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            margin-bottom: 2rem;
+
+            @media (min-width: $breakpoint) {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 
