@@ -9,7 +9,7 @@ export default function IndexPage({ data }) {
         <MonthLayout title="June">
             <ul className={"calendar calendar--30 calendar--wednesday"}>
                 {days.map(({ frontmatter, slug }) => (
-                    <li className={`calendar__day calendar__day--${slug.slice(-2)}`}><Link to={`/${slug}`} aria-label={frontmatter.title}>{+slug.slice(-2)}</Link></li>
+                    <li className={`calendar__day calendar__day--${slug.slice(-2)}`} key={slug}><Link to={`/${slug}`} aria-label={frontmatter.title}>{+slug.slice(-2)}</Link></li>
                 ))}
             </ul>
         </MonthLayout>
