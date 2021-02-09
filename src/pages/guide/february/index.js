@@ -1,39 +1,36 @@
-import React from "react";
-import Layout from "../../../components/layout";
-import SEO from "../../../components/seo";
+import React from "react"
+import { graphql, Link } from "gatsby"
+import MonthLayout from "../../../components/month"
 
-export default function IndexPage() {
+export default function IndexPage({ data }) {
+    const days = data.allMdx.nodes;
+    const emptyDays = 26;
+
     return (
-        <Layout>
-            <SEO title={"February"}/>
-            <main>
-                <div>
-                    <h2>February</h2>
-                </div>
-                <div className="day">
-                    <h3>Wed 2/1</h3>
-                    <h4>Daytime</h4>
-                    <ul>
-                        <li>Free Time</li>
-                    </ul>
-                    <h4>Evening</h4>
-                    <ul>
-                        <li>Free Time</li>
-                    </ul>
-                </div>
-                <div className="day">
-                    <h3>Thu 2/2</h3>
-                    <h4>Daytime</h4>
-                    <ul>
-                        <li>Faith Rank 11</li>
-                    </ul>
-                    <h4>Evening</h4>
-                    <ul>
-                        <li>Do not accept his deal</li>
-                        <li>Justice Rank 11 <strong>(Auto)</strong></li>
-                    </ul>
-                </div>
-            </main>
-        </Layout>
+        <MonthLayout title="February" previous="January" next={null}>
+            <ul className={"calendar calendar--28 calendar--wednesday"}>
+                {days.map(({ frontmatter, slug }) => (
+                    <li className={`calendar__day calendar__day--${slug.slice(-2)}`}><Link to={`/${slug}`} aria-label={frontmatter.title}>{+slug.slice(-2)}</Link></li>
+                ))}
+                {[...Array(emptyDays)].map((e, i) => (
+                    <li className="calendar__day disabled" key={i}>{i + 1}</li>
+                ))}
+            </ul>
+        </MonthLayout>
     );
 }
+
+export const query = graphql`
+    query FebruaryQuery {
+        allMdx(sort: {fields: slug, order: ASC}, filter: {slug: {regex: "/february/"}}) {
+            nodes {
+                frontmatter {
+                    title
+                    day
+                    needed
+                }
+                slug
+            }
+        }
+    }
+`
