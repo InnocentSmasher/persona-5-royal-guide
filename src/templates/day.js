@@ -44,7 +44,7 @@ export default function DayTemplate({ data, pageContext }) {
                     <Link to="..">Back to month</Link>
                 </div>
                 <div id="content" className="content">
-                    <ArcanaNeeded arcana={frontmatter.arcana} />
+                    {frontmatter.arcana.length > 0 ? <ArcanaNeeded arcana={frontmatter.arcana} /> : ''}
                     <MDXRenderer>{body}</MDXRenderer>
                 </div>
                 <Pagination previous={previous} next={next} />
