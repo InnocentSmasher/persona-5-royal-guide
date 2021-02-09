@@ -22,8 +22,6 @@ export const query = graphql`
             nodes {
                 frontmatter {
                     title
-                    day
-                    needed
                 }
                 slug
             }
