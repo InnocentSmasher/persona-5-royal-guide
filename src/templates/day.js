@@ -7,7 +7,32 @@ import Pagination from "../components/pagination"
 
 export default function DayTemplate({ data, pageContext }) {
     const { frontmatter, body } = data.mdx;
-    const { previous, next } = pageContext;
+    let { previous, next } = pageContext;
+
+    // set up edge cases since the year is split
+    if (pageContext.slug === "/guide/04/09/") {
+        previous = null;
+    } else if (pageContext.slug === "/guide/12/31/") {
+        next = {
+            "fields": {
+                "slug": "/guide/01/01/"
+            },
+            "frontmatter": {
+                "title": "January 1st"
+            }
+        };
+    } else if (pageContext.slug === "/guide/01/01/") {
+        previous = {
+            "fields": {
+                "slug": "/guide/12/31/"
+            },
+            "frontmatter": {
+                "title": "December 31st"
+            }
+        };
+    }  else if (pageContext.slug === "/guide/02/02/") {
+        next = null;
+    }
 
     return (
         <Layout>

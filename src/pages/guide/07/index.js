@@ -4,16 +4,12 @@ import MonthLayout from "../../../components/month"
 
 export default function IndexPage({ data }) {
     const days = data.allMdx.nodes;
-    const emptyDays = 26;
 
     return (
-        <MonthLayout title="February" previous="January" next={null}>
-            <ul className={"calendar calendar--28 calendar--wednesday"}>
+        <MonthLayout title="July">
+            <ul className={"calendar calendar--31 calendar--friday"}>
                 {days.map(({ frontmatter, slug }) => (
                     <li className={`calendar__day calendar__day--${slug.slice(-2)}`}><Link to={`/${slug}`} aria-label={frontmatter.title}>{+slug.slice(-2)}</Link></li>
-                ))}
-                {[...Array(emptyDays)].map((e, i) => (
-                    <li className="calendar__day disabled" key={i}>{i + 1}</li>
                 ))}
             </ul>
         </MonthLayout>
@@ -21,8 +17,8 @@ export default function IndexPage({ data }) {
 }
 
 export const query = graphql`
-    query FebruaryQuery {
-        allMdx(sort: {fields: slug, order: ASC}, filter: {slug: {regex: "/february/"}}) {
+    query JulyQuery {
+        allMdx(sort: {fields: slug, order: ASC}, filter: {slug: {regex: "/guide\/07\/"}}) {
             nodes {
                 frontmatter {
                     title

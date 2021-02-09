@@ -6,8 +6,8 @@ export default function IndexPage({ data }) {
     const days = data.allMdx.nodes;
 
     return (
-        <MonthLayout title="December" previous="November" next="January">
-            <ul className={"calendar calendar--31 calendar--thursday"}>
+        <MonthLayout title="June">
+            <ul className={"calendar calendar--30 calendar--wednesday"}>
                 {days.map(({ frontmatter, slug }) => (
                     <li className={`calendar__day calendar__day--${slug.slice(-2)}`}><Link to={`/${slug}`} aria-label={frontmatter.title}>{+slug.slice(-2)}</Link></li>
                 ))}
@@ -17,8 +17,8 @@ export default function IndexPage({ data }) {
 }
 
 export const query = graphql`
-    query DecemberQuery {
-        allMdx(sort: {fields: slug, order: ASC}, filter: {slug: {regex: "/december/"}}) {
+    query JuneQuery {
+        allMdx(sort: {fields: slug, order: ASC}, filter: {slug: {regex: "/guide\/06\/"}}) {
             nodes {
                 frontmatter {
                     title
