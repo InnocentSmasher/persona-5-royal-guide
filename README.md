@@ -12,8 +12,9 @@ This site is a hub for Persona 5 Royal guides and resources. When I was playing 
 
 ## Upcoming
 - Implement a component that shows which arcana will be needed for the next seven days
-- Break up each individual day into more parts
-    - So you get a sense of what happens and not just a string of "All Day - Auto" lists
+- Make the guide contents a bit more "my own"
+    - Break up each day to alleviate all the "All Day - Auto" pages
+    - General changes I found while playing
 - Add resources for social links
 - Add resource for darts
 - Update layout to be less plain
