@@ -170,16 +170,8 @@ sup {
 
 header {
     grid-area: header;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: .25rem solid var(--primary);
     padding-bottom: 1rem;
-
-    @media (min-width: $breakpoint) {
-        flex-direction: row;
-    }
 
     h1 {
         margin-bottom: 0;

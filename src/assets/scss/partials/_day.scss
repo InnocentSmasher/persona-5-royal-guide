@@ -1,11 +1,41 @@
-.day-template {
+.day {
     display: grid;
     grid-template-rows: min-content auto min-content;
     grid-gap: 2rem;
     align-self: unset;
 
-    h1 {
-        margin-bottom: 0;
+    &__header {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+
+        @media (min-width: $breakpoint) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        a {
+            margin-bottom: 2rem;
+
+            @media (min-width: $breakpoint) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .arcana-needed {
+        margin-bottom: 2rem;
+        padding: .75rem 1rem;
+        border: .125rem solid var(--primary);
+
+        h2 {
+            margin-bottom: .25rem;
+        }
     }
 
     .content {
@@ -40,13 +70,7 @@
     }
 }
 
-.day {
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
+
 
 .pagination {
     display: flex;
